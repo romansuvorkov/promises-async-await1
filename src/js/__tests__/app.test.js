@@ -1,6 +1,6 @@
 import GameSavingLoader from '../app';
 
-test('Проверка загрузки сохранения', () => {
+test('Проверка загрузки сохранения', (done) => {
   const expected = {
     id: 9,
     created: 1546300800,
@@ -10,8 +10,7 @@ test('Проверка загрузки сохранения', () => {
   };
   const received = GameSavingLoader.load();
   received.then((saving) => {
-    expect(received).toEqual(expected);
-  }, (error) => {
-    throw new Error('Произошла ошибка при загрузке сохранения');
+    expect(saving).toEqual(expected);
+    done();
   });
 });

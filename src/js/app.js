@@ -9,7 +9,7 @@ export default class GameSavingLoader {
         const value = json(response);
         return value;
       }).then((response) => {
-        resolve(response);
+        resolve(JSON.parse(response));
       });
     });
   }
